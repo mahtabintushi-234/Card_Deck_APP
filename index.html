@@ -55,6 +55,30 @@
             const [deck, setDeck] = React.useState(createFullDeck);
             const [displayedCards, setDisplayedCards] = React.useState([]);
             const [pickedCardId, setPickedCardId] = React.useState(null);
+            
+
+            function resetGame() {
+                setDeck(createFullDeck());
+                setDisplayedCards([]);
+                setPickedCardId(null);
+              }
+
+             function deal(n) {
+                const combined = [...deck, ...displayedCards];
+                let tempDeck = [...combined];
+                const newDisplayed = [];
+
+                for (let i = 0; i < n && tempDeck.length > 0; i++) {
+                   const result = drawRandomCard(tempDeck);
+                   tempDeck = result.deck;
+                   if (result.card) newDisplayed.push(result.card);
+                 }
+
+                 setDeck(tempDeck);
+                 setDisplayedCards(newDisplayed);
+                 setPickedCardId(null);
+           }
+
 
             function handleDeckClick() {
               if (deck.length === 0) return;
@@ -72,9 +96,11 @@
                     <button onClick={() => deal(5)}>Deal 5</button>
                     <button onClick={() => deal(7)}>Deal 7</button>
                     <button onClick={resetGame}>Reset</button>
-                    <button onClick={handleToss}>Toss</button>
-                    <button onClick={handleWildcard}>Wildcard</button>
-                    <button onClick={handleRegroup}>Regroup</button>
+                    {/*
+                   <button onClick={handleToss}>Toss</button>
+                   <button onClick={handleWildcard}>Wildcard</button>
+                   <button onClick={handleRegroup}>Regroup</button>
+                 */}
                  </div>
                  
                   <div className="deck-container" onClick={handleDeckClick}>
