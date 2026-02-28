@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0b1020;
+  color: #fff;
+}
+
+.app {
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.deck-container {
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.deck-back,
+.deck-empty {
+  width: 120px;
+  height: 160px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #333, #555);
+}
+
+.deck-empty {
+  background: #222;
+  color: #ff6666;
+}
+
+.controls button {
+  margin: 5px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card {
+  width: 80px;
+  height: 120px;
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.card-picked {
+  border-color: #00bfff;
+  box-shadow: 0 0 10px #00bfff;
+}
+
+.card-suit {
+  font-size: 24px;
+}
+
+.card-value {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
