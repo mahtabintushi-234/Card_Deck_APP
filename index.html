@@ -48,19 +48,21 @@
             newDeck.splice(index, 1);
             return { deck: newDeck, card };
          }
-        function handleDeckClick() {
-            if (deck.length === 0) return;
-            const result = drawRandomCard(deck);
-            if (!result.card) return;
-            setDeck(result.deck);
-            setDisplayedCards([...displayedCards, result.card]);
-         }
+       
   
             
            function App() {
             const [deck, setDeck] = React.useState(createFullDeck);
             const [displayedCards, setDisplayedCards] = React.useState([]);
             const [pickedCardId, setPickedCardId] = React.useState(null);
+
+            function handleDeckClick() {
+              if (deck.length === 0) return;
+              const result = drawRandomCard(deck);
+              if (!result.card) return;
+              setDeck(result.deck);
+              setDisplayedCards([...displayedCards, result.card]);
+           }
 
 
              return (
