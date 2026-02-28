@@ -63,19 +63,20 @@
               setDeck(result.deck);
               setDisplayedCards([...displayedCards, result.card]);
            }
-             <div className="controls">
-               <button onClick={() => deal(5)}>Deal 5</button>
-               <button onClick={() => deal(7)}>Deal 7</button>
-               <button onClick={resetGame}>Reset</button>
-               <button onClick={handleToss}>Toss</button>
-               <button onClick={handleWildcard}>Wildcard</button>
-               <button onClick={handleRegroup}>Regroup</button>
-             </div>
 
              return (
                <div className="app">
 
                   <h1>Card Deck App</h1>
+                  <div className="controls">
+                    <button onClick={() => deal(5)}>Deal 5</button>
+                    <button onClick={() => deal(7)}>Deal 7</button>
+                    <button onClick={resetGame}>Reset</button>
+                    <button onClick={handleToss}>Toss</button>
+                    <button onClick={handleWildcard}>Wildcard</button>
+                    <button onClick={handleRegroup}>Regroup</button>
+                 </div>
+                 
                   <div className="deck-container" onClick={handleDeckClick}>
                     {deck.length > 0 ? (
                      <div className="deck-back">Deck ({deck.length})</div>
@@ -94,7 +95,7 @@
                        suit={card.suit}
                        value={card.value}
                        isPicked={card.id === pickedCardId}
-                       onClick={() => {/* handleCardClick later */}}
+                       onClick={() => {}}
                       />
                   ))}
                  </div>
