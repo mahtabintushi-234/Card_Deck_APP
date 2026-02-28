@@ -15,9 +15,27 @@
     <body>
         <div id="root"></div>
          <script type="text/babel">
+            const suits = ['♥', '♦', '♣', '♠'];
+            const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+        function createFullDeck() {
+            const cards = [];
+            let id = 1;
+           for (const suit of suits) {
+             for (const value of values) {
+               cards.push({ id: id++, suit, value });
+           }
+        }
+        return cards;
+     }
             
            function App() {
-             return <h1>Card Deck App</h1>;
+             return (
+              <div className="app">
+
+                <h1>Card Deck App</h1>
+              </div>
+              );
            }
            const container = document.getElementById('root');
            const root = ReactDOM.createRoot(container);
