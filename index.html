@@ -21,19 +21,44 @@
         function createFullDeck() {
             const cards = [];
             let id = 1;
-           for (const suit of suits) {
+            for (const suit of suits) {
              for (const value of values) {
                cards.push({ id: id++, suit, value });
            }
         }
         return cards;
      }
+        function Card({ suit, value, isPicked, onClick }) {
+             const className = 'card' + (isPicked ? ' card-picked' : '');
+             return (
+              <div className={className} onClick={onClick}>
+                <div className="card-value">{value}</div>
+                <div className="card-suit">{suit}</div>
+              </div>
+         
+  );
+}
             
            function App() {
-             return (
-              <div className="app">
+            const [deck, setDeck] = React.useState(createFullDeck);
+            const [displayedCards, setDisplayedCards] = React.useState([]);
+            const [pickedCardId, setPickedCardId] = React.useState(null);
 
-                <h1>Card Deck App</h1>
+
+             return (
+               <div className="app">
+
+                 <div className="cards-container">
+                     {displayedCards.map(card => (
+                      <Card
+                       key={card.id}
+                       suit={card.suit}
+                       value={card.value}
+                       isPicked={card.id === pickedCardId}
+                       onClick={() => {/* handleCardClick later */}}
+                      />
+                  ))}
+                 </div>
               </div>
               );
            }
