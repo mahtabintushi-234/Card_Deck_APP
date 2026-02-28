@@ -35,9 +35,27 @@
                 <div className="card-value">{value}</div>
                 <div className="card-suit">{suit}</div>
               </div>
-         
-  );
-}
+            );
+      }
+
+        function drawRandomCard(deck) {
+            if (deck.length === 0) {
+            return { deck, card: null };
+              }
+            const index = Math.floor(Math.random() * deck.length);
+            const card = deck[index];
+            const newDeck = [...deck];
+            newDeck.splice(index, 1);
+            return { deck: newDeck, card };
+         }
+        function handleDeckClick() {
+            if (deck.length === 0) return;
+            const result = drawRandomCard(deck);
+            if (!result.card) return;
+            setDeck(result.deck);
+            setDisplayedCards([...displayedCards, result.card]);
+         }
+  
             
            function App() {
             const [deck, setDeck] = React.useState(createFullDeck);
