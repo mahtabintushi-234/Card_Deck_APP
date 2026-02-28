@@ -87,6 +87,26 @@
               setDeck(result.deck);
               setDisplayedCards([...displayedCards, result.card]);
            }
+            function handleCardClick(cardId) {
+               if (pickedCardId === null) {
+                  setPickedCardId(cardId);
+               } 
+               else if (pickedCardId === cardId) {
+                  setPickedCardId(null);
+               } 
+               else {
+                  const newCards = [...displayedCards];
+                  const index1 = newCards.findIndex(c => c.id === pickedCardId);
+                  const index2 = newCards.findIndex(c => c.id === cardId);
+                  if (index1 !== -1 && index2 !== -1) {
+                      const temp = newCards[index1];
+                      newCards[index1] = newCards[index2];
+                      newCards[index2] = temp;
+                 }
+             setDisplayedCards(newCards);
+             setPickedCardId(null);
+           }
+         }
 
              return (
                <div className="app">
@@ -121,7 +141,7 @@
                        suit={card.suit}
                        value={card.value}
                        isPicked={card.id === pickedCardId}
-                       onClick={() => {}}
+                       onClick={() => {handleCardClick(card.id)}}
                       />
                   ))}
                  </div>
