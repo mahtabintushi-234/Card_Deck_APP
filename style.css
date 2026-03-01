@@ -1,23 +1,30 @@
- /* StAuth10244: I Mahtabin Tushi, 000952184 certify that this material is my original work. No other person's work has been used without due acknowledgement.
-  I have not made my work available to anyone else. */
+/* StAuth10244: I Mahtabin Tushi, 000952184 certify that this material is my original work. No other person's work has been used without due acknowledgement. I have not made my work available to anyone else. */
 
+/* ------------------------------
+   Global Page Styling
+------------------------------ */
 body {
   font-family: Arial, sans-serif;
   background: #0b1020;
   color: #fff;
 }
 
+/* Center the app and control width */
 .app {
   max-width: 900px;
   margin: 20px auto;
   text-align: center;
 }
 
+/* ------------------------------
+   Deck Display Styling
+------------------------------ */
 .deck-container {
   margin: 20px auto;
   cursor: pointer;
 }
 
+/* Back of deck + empty deck box */
 .deck-back,
 .deck-empty {
   width: 120px;
@@ -30,11 +37,15 @@ body {
   background: linear-gradient(135deg, #333, #555);
 }
 
+/* Styling for when deck is empty */
 .deck-empty {
   background: #222;
   color: #ff6666;
 }
 
+/* ------------------------------
+   Control Buttons
+------------------------------ */
 .controls button {
   margin: 5px;
   padding: 8px 14px;
@@ -43,6 +54,9 @@ body {
   cursor: pointer;
 }
 
+/* ------------------------------
+   Displayed Cards Layout
+------------------------------ */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -51,6 +65,9 @@ body {
   margin-top: 20px;
 }
 
+/* ------------------------------
+   Individual Card Styling
+------------------------------ */
 .card {
   width: 80px;
   height: 120px;
@@ -65,15 +82,18 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
+/* Highlight card when selected */
 .card-picked {
   border-color: #00bfff;
   box-shadow: 0 0 10px #00bfff;
 }
 
+/* Suit symbol styling */
 .card-suit {
   font-size: 24px;
 }
 
+/* Card value styling */
 .card-value {
   font-size: 18px;
   margin-bottom: 5px;
