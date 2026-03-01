@@ -100,7 +100,8 @@
           for (let i = 0; i < n && tempDeck.length > 0; i++) {
             const result = drawRandomCard(tempDeck);
             tempDeck = result.deck;
-            if (result.card) newDisplayed.push(result.card);
+            if (result.card) 
+            newDisplayed.push(result.card);
           }
 
           setDeck(tempDeck);
@@ -112,10 +113,12 @@
         // Draw a single card when deck is clicked
         // -----------------------------------------
         function handleDeckClick() {
-          if (deck.length === 0) return;
+          if (deck.length === 0) 
+          return;
 
           const result = drawRandomCard(deck);
-          if (!result.card) return;
+          if (!result.card) 
+          return;
 
           setDeck(result.deck);
           setDisplayedCards([...displayedCards, result.card]);
@@ -149,7 +152,8 @@
         // Toss (delete) the picked card permanently
         // -----------------------------------------
         function handleToss() {
-          if (pickedCardId === null) return;
+          if (pickedCardId === null) 
+          return;
 
           const newCards = displayedCards.filter(c => c.id !== pickedCardId);
           setDisplayedCards(newCards);
